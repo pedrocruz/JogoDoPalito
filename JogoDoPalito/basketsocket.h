@@ -10,13 +10,16 @@ class BasketSocket
 public:
     BasketSocket();
     QTcpSocket socket;
-    Player player;
+    Player *player;
+
+    ~BasketSocket();
 
 signals:
     gotResults();
 public slots:
     sendMove();
     receiveResults();
+
 
 };
 

@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <basketsocket.h>
 
 namespace Ui {
 class MainWindow;
@@ -14,7 +15,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    
+    BasketSocket bSocket;
+
 private:
     Ui::MainWindow *ui;
 };
