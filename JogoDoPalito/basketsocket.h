@@ -15,10 +15,10 @@ public:
     ~BasketSocket();
 
 signals:
-    gotResults();
+    void gotResults();
 public slots:
-    sendMove();
-    receiveResults();
+    void sendMove();
+    void receiveResults();
 
 
 };

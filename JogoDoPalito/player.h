@@ -8,7 +8,6 @@ class Player
 {
 public:
     Player();
-    Player();
     QTcpSocket socket;
     QString name;
     int turn;
