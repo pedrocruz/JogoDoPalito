@@ -14,14 +14,13 @@
 
 //move format: "<move>,hand,guess"
 
+
+
 class BasketSocket : public QObject
 {
-    Q_OBJECT
-
+Q_OBJECT
 public:
-    BasketSocket();
-
-
+    BasketSocket(QWidget *parent = 0);
     QTcpSocket *tcpSocket;
     Player *player;
     QList<Player> otherPlayers;
@@ -34,12 +33,10 @@ public:
     void sendMove(int hand, int guess);
     void connectTo(QString ip, int port);
     ~BasketSocket();
-
-
 signals:
     void gotResults();
 
-public slots:    
+ public slots:
     void receiveResults();
     void sessionOpened();
 
