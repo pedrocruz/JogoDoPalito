@@ -9,8 +9,10 @@
 #include <QNetworkSession>
 #include <QNetworkConfigurationManager>
 #include <QSettings>
-//#define separator ,
-//#define moveConst <move>
+#include <QStringList>
+
+#define separator ","
+#define moveConst "<move>"
 
 //move format: "<move>,hand,guess"
 
@@ -32,6 +34,7 @@ public:
 
     void sendMove(int hand, int guess);
     void connectTo(QString ip, int port);
+    void parseMessage(QString message);
     ~BasketSocket();
 signals:
     void gotResults();
@@ -39,6 +42,7 @@ signals:
  public slots:
     void receiveResults();
     void sessionOpened();
+    void messageReceived();
 
 private:
     void sendMessage(QString messageToSend);
