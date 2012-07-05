@@ -19,10 +19,3 @@ void ConnectionDialog::on_okButton_clicked()
     port = this->ui->portLineEdit->text();
     emit ok_clicked();
 }
-
-
-
-void ConnectionDialog::on_serverButton_clicked()
-{
-    emit serverBehaviorClicked();
-}

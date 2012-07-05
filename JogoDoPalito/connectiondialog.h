@@ -19,12 +19,9 @@ public:
 
 signals:
     void ok_clicked();
-    void serverBehaviorClicked();
     
 private slots:
     void on_okButton_clicked();
-
-    void on_serverButton_clicked();
 
 private:
     Ui::ConnectionDialog *ui;

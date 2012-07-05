@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <basketsocket.h>
+#include <connectiondialog.h>
 
 namespace Ui {
 class MainWindow;
@@ -15,10 +16,16 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    BasketSocket bSocket;
+    BasketSocket *bSocket;
+    ConnectionDialog *connectionDialog;
 
 private:
     Ui::MainWindow *ui;
+
+private slots:
+    void sendMove();
+    void resultsReceived();
+    void connectToServer();
 };
 
 #endif // MAINWINDOW_H

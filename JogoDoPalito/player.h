@@ -10,6 +10,7 @@ public:
     Player();
     QTcpSocket socket;
     QString name;
+    int maxHand;
     int turn;
     int hand;
     int guess;

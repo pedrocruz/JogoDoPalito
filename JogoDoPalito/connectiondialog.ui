@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>190</width>
-    <height>202</height>
+    <height>170</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -83,19 +83,6 @@
    </property>
    <property name="text">
     <string>Ok</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="serverButton">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>170</y>
-     <width>171</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Comportamento de servidor</string>
    </property>
   </widget>
  </widget>
