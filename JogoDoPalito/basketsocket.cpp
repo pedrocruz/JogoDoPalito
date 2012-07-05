@@ -47,19 +47,34 @@ BasketSocket::BasketSocket(QWidget *parent)
 
 void BasketSocket::sendMove(int hand, int guess)
 {
+    QString move(moveConst);
+    move.append(separator);
+    move.append(this->player->index);
+    move.append(separator);
+    move.append(hand);
+    move.append(separator);
+    move.append(guess);
+    this->sendMessage(move);
 }
 
 void BasketSocket::connectTo(QString ip, int port)
 {
+
     tcpSocket->connectToHost(ip, port);
+
     this->connected = true;
     connect(tcpSocket, SIGNAL(readyRead()), this, SLOT(messageReceived()));
+    connect(tcpSocket, SIGNAL(disconnected()),tcpSocket, SLOT(deleteLater()));
 }
 
 void BasketSocket::parseMessage(QString message)
 {
     if(message.contains(moveConst)){
         QStringList list = message.split(separator);
+        for(int i=0; i<list.size()/2; i++){
+            this->player->hand = list.at(1+(i*2)).toInt();
+            this->player->guess = list.at(2+(i*2)).toInt();
+        }
     }
 }
 
@@ -81,9 +96,6 @@ void BasketSocket::receiveResults()
 {
 }
 
-void BasketSocket::sessionOpened()
-{
-}
 
 void BasketSocket::messageReceived()
 {
@@ -94,15 +106,17 @@ void BasketSocket::messageReceived()
         if (tcpSocket->bytesAvailable() < (int)sizeof(quint16))
             return;
 
+        std::cout<<__LINE__<<std::endl;
         in >> blockSize;
     }
 
-    if (tcpSocket->bytesAvailable() < blockSize)
-        return;
+    if (tcpSocket->bytesAvailable() < blockSize) return;
 
     QString inMessage;
     in >> inMessage;
     blockSize = 0;
+    std::cout<<__LINE__<<std::endl;
+    std::cout<< qPrintable(inMessage);
     this->parseMessage(inMessage);
 }
 

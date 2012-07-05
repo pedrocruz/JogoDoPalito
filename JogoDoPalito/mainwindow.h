@@ -23,9 +23,9 @@ private:
     Ui::MainWindow *ui;
 
 private slots:
-    void sendMove();
     void resultsReceived();
     void connectToServer();
+    void on_guessPushButton_clicked();
 };
 
 #endif // MAINWINDOW_H

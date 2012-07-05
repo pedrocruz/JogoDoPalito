@@ -10,11 +10,14 @@
 #include <QNetworkConfigurationManager>
 #include <QSettings>
 #include <QStringList>
+#include <iostream>
 
 #define separator ","
 #define moveConst "<move>"
 
-//move format: "<move>,hand,guess"
+//move send format: "<move>,index,hand,guess"
+//players subscription format: "<players>,name1,name2,name3
+//move reception format: "<move>,hand1,guess1,hand2,guess2..."
 
 
 
@@ -41,7 +44,6 @@ signals:
 
  public slots:
     void receiveResults();
-    void sessionOpened();
     void messageReceived();
 
 private:
