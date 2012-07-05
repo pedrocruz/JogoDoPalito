@@ -13,10 +13,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     basketsocket.cpp \
-    player.cpp
+    player.cpp \
+    connectiondialog.cpp
 
 HEADERS  += mainwindow.h \
     basketsocket.h \
-    player.h
+    player.h \
+    connectiondialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    connectiondialog.ui

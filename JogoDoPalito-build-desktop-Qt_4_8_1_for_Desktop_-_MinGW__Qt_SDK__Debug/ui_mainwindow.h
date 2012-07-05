@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu 5. Jul 11:42:59 2012
+** Created: Thu 5. Jul 14:02:13 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -32,7 +32,7 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QListWidget *listWidget;
-    QPushButton *pushButton;
+    QPushButton *guessPushButton;
     QLabel *label;
     QSpinBox *guessSelect;
     QLabel *label_2;
@@ -45,15 +45,15 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(422, 364);
+        MainWindow->resize(422, 319);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         listWidget = new QListWidget(centralWidget);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
         listWidget->setGeometry(QRect(5, 0, 411, 191));
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(330, 280, 75, 23));
+        guessPushButton = new QPushButton(centralWidget);
+        guessPushButton->setObjectName(QString::fromUtf8("guessPushButton"));
+        guessPushButton->setGeometry(QRect(314, 200, 81, 51));
         label = new QLabel(centralWidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(10, 200, 121, 21));
@@ -86,7 +86,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
-        pushButton->setText(QApplication::translate("MainWindow", "PushButton", 0, QApplication::UnicodeUTF8));
+        guessPushButton->setText(QApplication::translate("MainWindow", "Enviar palpite", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindow", "Palpite", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("MainWindow", "M\303\243o", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
