@@ -14,10 +14,13 @@
 
 #define separator ","
 #define moveConst "<move>"
+#define indexConst "<index>"
+#define playersConst "<players>"
 
 //move send format: "<move>,index,hand,guess"
 //players subscription format: "<players>,name1,name2,name3
 //move reception format: "<move>,hand1,guess1,hand2,guess2..."
+//index format: "<index>,index"
 
 
 

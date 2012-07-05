@@ -63,10 +63,10 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>230</y>
+      <x>170</x>
+      <y>203</y>
       <width>46</width>
-      <height>13</height>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
@@ -76,11 +76,24 @@
    <widget class="QSpinBox" name="handSelect">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>230</y>
+      <x>210</x>
+      <y>200</y>
       <width>42</width>
       <height>22</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>232</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Seu índice é:</string>
     </property>
    </widget>
   </widget>

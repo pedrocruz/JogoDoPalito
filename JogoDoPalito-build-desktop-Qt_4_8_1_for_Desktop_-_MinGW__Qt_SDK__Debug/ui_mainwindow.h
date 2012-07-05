@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu 5. Jul 15:31:39 2012
+** Created: Thu 5. Jul 17:16:37 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -37,6 +37,7 @@ public:
     QSpinBox *guessSelect;
     QLabel *label_2;
     QSpinBox *handSelect;
+    QLabel *label_3;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -62,10 +63,13 @@ public:
         guessSelect->setGeometry(QRect(60, 200, 42, 22));
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(10, 230, 46, 13));
+        label_2->setGeometry(QRect(170, 203, 46, 20));
         handSelect = new QSpinBox(centralWidget);
         handSelect->setObjectName(QString::fromUtf8("handSelect"));
-        handSelect->setGeometry(QRect(60, 230, 42, 22));
+        handSelect->setGeometry(QRect(210, 200, 42, 22));
+        label_3 = new QLabel(centralWidget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(20, 232, 111, 21));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -89,6 +93,7 @@ public:
         guessPushButton->setText(QApplication::translate("MainWindow", "Enviar palpite", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindow", "Palpite", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("MainWindow", "M\303\243o", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("MainWindow", "Seu \303\255ndice \303\251:", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

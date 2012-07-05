@@ -6,6 +6,7 @@ BasketSocket::BasketSocket(QWidget *parent)
     tcpSocket = 0;
     blockSize = 0;
     connected = false;
+    this->player = new Player();
     QNetworkConfigurationManager manager;
     if (manager.capabilities() & QNetworkConfigurationManager::NetworkSessionRequired) {
         // Get saved network configuration
@@ -69,12 +70,16 @@ void BasketSocket::connectTo(QString ip, int port)
 
 void BasketSocket::parseMessage(QString message)
 {
+    QStringList list;
     if(message.contains(moveConst)){
-        QStringList list = message.split(separator);
+        list = message.split(separator);
         for(int i=0; i<list.size()/2; i++){
             this->player->hand = list.at(1+(i*2)).toInt();
             this->player->guess = list.at(2+(i*2)).toInt();
         }
+    }else if(message.contains(indexConst)){
+        list = message.split(separator);
+        this->player->index = list.at(1).toInt();
     }
 }
 
@@ -84,12 +89,15 @@ void BasketSocket::sendMessage(QString messageToSend)
     QDataStream out(&block, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_4_0);
     out << (quint16)0;
+    std::cout<<__LINE__<<std::endl;
     out<< messageToSend;
     out.device()->seek(0);
     out << (quint16)(block.size() - sizeof(quint16));
+    std::cout<<__LINE__<<std::endl;
 
     this->tcpSocket->write(block);
     this->tcpSocket->flush();
+    std::cout<<__LINE__<<std::endl;
 }
 
 void BasketSocket::receiveResults()
