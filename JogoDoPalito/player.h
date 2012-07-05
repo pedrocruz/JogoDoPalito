@@ -15,6 +15,7 @@ public:
     int hand;
     int guess;
     int index;
+    int wins;
 };
 
 #endif // PLAYER_H

@@ -43,9 +43,6 @@ BasketSocket::BasketSocket(QWidget *parent)
     tcpSocket = new QTcpSocket(this);
 }
 
-
-
-
 void BasketSocket::sendMove(int hand, int guess)
 {
     QString move(moveConst);
@@ -84,7 +81,9 @@ void BasketSocket::parseMessage(QString message)
         emit indexChanged();
     }else if(message.contains(playersConst)){
         list = message.split(separator);
+        this->otherPlayers.clear();
         for(int i = 1; i<list.size(); i++){
+            std::cout<<qPrintable(list.at(i))<<std::endl;
             this->otherPlayers.append(Player(list.at(i)));
         }
         emit playersListChanged();

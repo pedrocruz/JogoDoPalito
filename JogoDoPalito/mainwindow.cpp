@@ -42,7 +42,14 @@ void MainWindow::on_guessPushButton_clicked()
 
 void MainWindow::drawPlayersList()
 {
-    this->ui->listWidget->
+    this->ui->playersTableWidget->setRowCount(this->bSocket->otherPlayers.size());
+    for(int i = 0; i< this->bSocket->otherPlayers.size(); i++){
+        this->ui->playersTableWidget->setItem(i,0,new QTableWidgetItem(QString::number(bSocket->otherPlayers.at(i).index)));
+        this->ui->playersTableWidget->setItem(i,1, new QTableWidgetItem(bSocket->otherPlayers.at(i).name));
+        this->ui->playersTableWidget->setItem(i,2, new QTableWidgetItem(QString::number(bSocket->otherPlayers.at(i).guess)));
+        this->ui->playersTableWidget->setItem(i,3, new QTableWidgetItem(QString::number(bSocket->otherPlayers.at(i).hand)));
+        this->ui->playersTableWidget->setItem(i,4, new QTableWidgetItem(QString::number(bSocket->otherPlayers.at(i).wins)));
+    }
 }
 
 void MainWindow::setIndex()

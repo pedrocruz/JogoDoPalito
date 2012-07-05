@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>422</width>
-    <height>319</height>
+    <width>528</width>
+    <height>243</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="guessPushButton">
     <property name="geometry">
      <rect>
-      <x>314</x>
-      <y>200</y>
+      <x>420</x>
+      <y>138</y>
       <width>81</width>
       <height>51</height>
      </rect>
@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>200</y>
+      <y>138</y>
       <width>121</width>
       <height>21</height>
      </rect>
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>200</y>
+      <y>138</y>
       <width>42</width>
       <height>22</height>
      </rect>
@@ -54,7 +54,7 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>203</y>
+      <y>141</y>
       <width>46</width>
       <height>20</height>
      </rect>
@@ -67,17 +67,20 @@
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>200</y>
+      <y>138</y>
       <width>42</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="maximum">
+     <number>3</number>
     </property>
    </widget>
    <widget class="QLabel" name="indexLabel">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>232</y>
+      <x>10</x>
+      <y>170</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -86,15 +89,43 @@
      <string>Seu índice é:</string>
     </property>
    </widget>
-   <widget class="QTableView" name="tableView">
+   <widget class="QTableWidget" name="playersTableWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>401</width>
-      <height>192</height>
+      <width>511</width>
+      <height>121</height>
      </rect>
     </property>
+    <property name="columnCount">
+     <number>5</number>
+    </property>
+    <column>
+     <property name="text">
+      <string>nº</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Nome</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Mão</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Palpite</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Vitórias</string>
+     </property>
+    </column>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -102,7 +133,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>422</width>
+     <width>528</width>
      <height>21</height>
     </rect>
    </property>
