@@ -14,16 +14,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QListWidget" name="listWidget">
-    <property name="geometry">
-     <rect>
-      <x>5</x>
-      <y>0</y>
-      <width>411</width>
-      <height>191</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="guessPushButton">
     <property name="geometry">
      <rect>
@@ -94,6 +84,16 @@
     </property>
     <property name="text">
      <string>Seu índice é:</string>
+    </property>
+   </widget>
+   <widget class="QTableView" name="tableView">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>401</width>
+      <height>192</height>
+     </rect>
     </property>
    </widget>
   </widget>

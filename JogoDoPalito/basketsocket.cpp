@@ -50,11 +50,11 @@ void BasketSocket::sendMove(int hand, int guess)
 {
     QString move(moveConst);
     move.append(separator);
-    move.append(this->player->index);
+    move.append(QString::number(this->player->index));
     move.append(separator);
-    move.append(hand);
+    move.append(QString::number(hand));
     move.append(separator);
-    move.append(guess);
+    move.append(QString::number(guess));
     this->sendMessage(move);
 }
 
@@ -81,7 +81,6 @@ void BasketSocket::parseMessage(QString message)
         std::cout<<__LINE__<<std::endl;
         list = message.split(separator);
         this->player->index = list.at(1).toInt();
-        std::cout<<"Index = "<<this->player->index<<std::endl;
         emit indexChanged();
     }else if(message.contains(playersConst)){
         list = message.split(separator);

@@ -42,7 +42,7 @@ void MainWindow::on_guessPushButton_clicked()
 
 void MainWindow::drawPlayersList()
 {
-    //this->ui->
+    this->ui->listWidget->
 }
 
 void MainWindow::setIndex()
