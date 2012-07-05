@@ -12,9 +12,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    basketsocket.cpp
+    basketsocket.cpp \
+    player.cpp
 
 HEADERS  += mainwindow.h \
-    basketsocket.h
+    basketsocket.h \
+    player.h
 
 FORMS    += mainwindow.ui
