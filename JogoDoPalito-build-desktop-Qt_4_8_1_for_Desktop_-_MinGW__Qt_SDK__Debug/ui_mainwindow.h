@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu 5. Jul 17:16:37 2012
+** Created: Thu 5. Jul 17:55:46 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -33,11 +33,11 @@ public:
     QWidget *centralWidget;
     QListWidget *listWidget;
     QPushButton *guessPushButton;
-    QLabel *label;
+    QLabel *guessLabel;
     QSpinBox *guessSelect;
-    QLabel *label_2;
+    QLabel *handLabel;
     QSpinBox *handSelect;
-    QLabel *label_3;
+    QLabel *indexLabel;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -55,21 +55,21 @@ public:
         guessPushButton = new QPushButton(centralWidget);
         guessPushButton->setObjectName(QString::fromUtf8("guessPushButton"));
         guessPushButton->setGeometry(QRect(314, 200, 81, 51));
-        label = new QLabel(centralWidget);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(10, 200, 121, 21));
+        guessLabel = new QLabel(centralWidget);
+        guessLabel->setObjectName(QString::fromUtf8("guessLabel"));
+        guessLabel->setGeometry(QRect(10, 200, 121, 21));
         guessSelect = new QSpinBox(centralWidget);
         guessSelect->setObjectName(QString::fromUtf8("guessSelect"));
         guessSelect->setGeometry(QRect(60, 200, 42, 22));
-        label_2 = new QLabel(centralWidget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(170, 203, 46, 20));
+        handLabel = new QLabel(centralWidget);
+        handLabel->setObjectName(QString::fromUtf8("handLabel"));
+        handLabel->setGeometry(QRect(170, 203, 46, 20));
         handSelect = new QSpinBox(centralWidget);
         handSelect->setObjectName(QString::fromUtf8("handSelect"));
         handSelect->setGeometry(QRect(210, 200, 42, 22));
-        label_3 = new QLabel(centralWidget);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(20, 232, 111, 21));
+        indexLabel = new QLabel(centralWidget);
+        indexLabel->setObjectName(QString::fromUtf8("indexLabel"));
+        indexLabel->setGeometry(QRect(20, 232, 111, 21));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -91,9 +91,9 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
         guessPushButton->setText(QApplication::translate("MainWindow", "Enviar palpite", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("MainWindow", "Palpite", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("MainWindow", "M\303\243o", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("MainWindow", "Seu \303\255ndice \303\251:", 0, QApplication::UnicodeUTF8));
+        guessLabel->setText(QApplication::translate("MainWindow", "Palpite", 0, QApplication::UnicodeUTF8));
+        handLabel->setText(QApplication::translate("MainWindow", "M\303\243o", 0, QApplication::UnicodeUTF8));
+        indexLabel->setText(QApplication::translate("MainWindow", "Seu \303\255ndice \303\251:", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

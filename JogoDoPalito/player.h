@@ -7,8 +7,8 @@
 class Player
 {
 public:
+    Player(QString name);
     Player();
-    QTcpSocket socket;
     QString name;
     int maxHand;
     int turn;

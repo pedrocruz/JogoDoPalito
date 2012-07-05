@@ -10,6 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     this->connectionDialog->show();
 
     connect(connectionDialog, SIGNAL(ok_clicked()), this, SLOT(connectToServer()));
+    connect(bSocket, SIGNAL(playersListChanged()), this, SLOT(drawPlayersList()));
+    connect(bSocket, SIGNAL(indexChanged()), this, SLOT(setIndex()));
     ui->setupUi(this);
 
 }
@@ -36,4 +38,17 @@ void MainWindow::on_guessPushButton_clicked()
 {
     this->bSocket->sendMove(this->ui->handSelect->value(), this->ui->guessSelect->value());
 
+}
+
+void MainWindow::drawPlayersList()
+{
+    //this->ui->
+}
+
+void MainWindow::setIndex()
+{
+    QString labelText = this->ui->indexLabel->text();
+    labelText.append(" ");
+    labelText.append(QString::number(this->bSocket->player->index));
+    this->ui->indexLabel->setText(labelText);
 }

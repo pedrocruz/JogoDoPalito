@@ -44,6 +44,8 @@ public:
     ~BasketSocket();
 signals:
     void gotResults();
+    void playersListChanged();
+    void indexChanged();
 
  public slots:
     void receiveResults();

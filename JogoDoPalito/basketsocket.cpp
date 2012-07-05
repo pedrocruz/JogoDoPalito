@@ -78,8 +78,18 @@ void BasketSocket::parseMessage(QString message)
             this->player->guess = list.at(2+(i*2)).toInt();
         }
     }else if(message.contains(indexConst)){
+        std::cout<<__LINE__<<std::endl;
         list = message.split(separator);
         this->player->index = list.at(1).toInt();
+        std::cout<<"Index = "<<this->player->index<<std::endl;
+        emit indexChanged();
+    }else if(message.contains(playersConst)){
+        list = message.split(separator);
+        for(int i = 1; i<list.size(); i++){
+            this->otherPlayers.append(Player(list.at(i)));
+        }
+        emit playersListChanged();
+
     }
 }
 
@@ -89,15 +99,12 @@ void BasketSocket::sendMessage(QString messageToSend)
     QDataStream out(&block, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_4_0);
     out << (quint16)0;
-    std::cout<<__LINE__<<std::endl;
     out<< messageToSend;
     out.device()->seek(0);
     out << (quint16)(block.size() - sizeof(quint16));
-    std::cout<<__LINE__<<std::endl;
 
     this->tcpSocket->write(block);
     this->tcpSocket->flush();
-    std::cout<<__LINE__<<std::endl;
 }
 
 void BasketSocket::receiveResults()
@@ -114,7 +121,6 @@ void BasketSocket::messageReceived()
         if (tcpSocket->bytesAvailable() < (int)sizeof(quint16))
             return;
 
-        std::cout<<__LINE__<<std::endl;
         in >> blockSize;
     }
 
@@ -123,7 +129,6 @@ void BasketSocket::messageReceived()
     QString inMessage;
     in >> inMessage;
     blockSize = 0;
-    std::cout<<__LINE__<<std::endl;
     std::cout<< qPrintable(inMessage);
     this->parseMessage(inMessage);
 }

@@ -37,7 +37,7 @@
      <string>Enviar palpite</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="guessLabel">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -60,7 +60,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="handLabel">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -83,7 +83,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="indexLabel">
     <property name="geometry">
      <rect>
       <x>20</x>

@@ -26,6 +26,8 @@ private slots:
     void resultsReceived();
     void connectToServer();
     void on_guessPushButton_clicked();
+    void drawPlayersList();
+    void setIndex();
 };
 
 #endif // MAINWINDOW_H
