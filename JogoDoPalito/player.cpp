@@ -7,6 +7,7 @@ Player::Player(QString name)
     this->index = 0;
     this->turn = 0;
     this->wins = 0;
+    this->hand = 0;
 }
 
 Player::Player()
