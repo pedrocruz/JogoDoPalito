@@ -49,8 +49,8 @@ signals:
     void indexChanged();
 
  public slots:
-    void receiveResults();
     void messageReceived();
+    void sendName();
 
 private:
     void sendMessage(QString messageToSend);
