@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu 5. Jul 19:40:05 2012
+** Created: Thu 5. Jul 22:16:15 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -38,6 +38,7 @@ public:
     QSpinBox *handSelect;
     QLabel *indexLabel;
     QTableWidget *playersTableWidget;
+    QLabel *winnersLabel;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -46,7 +47,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(528, 243);
+        MainWindow->resize(528, 355);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         guessPushButton = new QPushButton(centralWidget);
@@ -69,8 +70,8 @@ public:
         indexLabel->setObjectName(QString::fromUtf8("indexLabel"));
         indexLabel->setGeometry(QRect(10, 170, 111, 21));
         playersTableWidget = new QTableWidget(centralWidget);
-        if (playersTableWidget->columnCount() < 5)
-            playersTableWidget->setColumnCount(5);
+        if (playersTableWidget->columnCount() < 4)
+            playersTableWidget->setColumnCount(4);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         playersTableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
@@ -79,11 +80,18 @@ public:
         playersTableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
         playersTableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
-        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
-        playersTableWidget->setHorizontalHeaderItem(4, __qtablewidgetitem4);
         playersTableWidget->setObjectName(QString::fromUtf8("playersTableWidget"));
         playersTableWidget->setGeometry(QRect(10, 0, 511, 121));
-        playersTableWidget->setColumnCount(5);
+        playersTableWidget->setColumnCount(4);
+        winnersLabel = new QLabel(centralWidget);
+        winnersLabel->setObjectName(QString::fromUtf8("winnersLabel"));
+        winnersLabel->setGeometry(QRect(10, 200, 501, 61));
+        QFont font;
+        font.setPointSize(14);
+        font.setBold(true);
+        font.setItalic(false);
+        font.setWeight(75);
+        winnersLabel->setFont(font);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -109,15 +117,14 @@ public:
         handLabel->setText(QApplication::translate("MainWindow", "M\303\243o", 0, QApplication::UnicodeUTF8));
         indexLabel->setText(QApplication::translate("MainWindow", "Seu \303\255ndice \303\251:", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem = playersTableWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "n\302\272", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Nome", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem1 = playersTableWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "Nome", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "M\303\243o", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem2 = playersTableWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "M\303\243o", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "Palpite", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem3 = playersTableWidget->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QApplication::translate("MainWindow", "Palpite", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem4 = playersTableWidget->horizontalHeaderItem(4);
-        ___qtablewidgetitem4->setText(QApplication::translate("MainWindow", "Vit\303\263rias", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem3->setText(QApplication::translate("MainWindow", "Vit\303\263rias", 0, QApplication::UnicodeUTF8));
+        winnersLabel->setText(QApplication::translate("MainWindow", "Vencedores da rodada:", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

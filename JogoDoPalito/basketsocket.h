@@ -33,7 +33,8 @@ public:
     QTcpSocket *tcpSocket;
     Player *player;
     QList<Player> otherPlayers;
-    quint16 blockSize;
+    QList<int> winnersIndexes;
+    qint16 blockSize;
     QString ipAddress;
     QNetworkSession *networkSession;
     bool connected;
@@ -42,11 +43,13 @@ public:
     void sendMove(int hand, int guess);
     void connectTo(QString ip, int port);
     void parseMessage(QString message);
+    void calculateWinner();
     ~BasketSocket();
 signals:
     void gotResults();
     void playersListChanged();
     void indexChanged();
+    void allPlayersReady();
 
  public slots:
     void messageReceived();

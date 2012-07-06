@@ -77,9 +77,9 @@ void BasketSocket::parseMessage(QString message)
             p.guess = list.at(2+(i*2)).toInt();
             this->otherPlayers.replace(i,p);
         }
-        emit playersListChanged();
+        this->calculateWinner();
+        emit allPlayersReady();
     }else if(message.contains(indexConst)){
-        std::cout<<__LINE__<<std::endl;
         list = message.split(separator);
         this->player->index = list.at(1).toInt();
         emit indexChanged();
@@ -87,11 +87,28 @@ void BasketSocket::parseMessage(QString message)
         list = message.split(separator);
         this->otherPlayers.clear();
         for(int i = 1; i<list.size(); i++){
-            std::cout<<qPrintable(list.at(i))<<std::endl;
             this->otherPlayers.append(Player(list.at(i)));
         }
         emit playersListChanged();
 
+    }
+}
+
+void BasketSocket::calculateWinner()
+{
+    int sum = 0;
+    winnersIndexes.clear();
+    for(int i = 0; i< this->otherPlayers.size(); i++){
+        sum += otherPlayers.at(i).hand;
+    }
+    Player p;
+    for(int i = 0; i< this->otherPlayers.size(); i++){
+        if(this->otherPlayers.at(i).guess == sum){
+            winnersIndexes.append(i);
+            p = otherPlayers.at(i);
+            p.wins ++;
+            otherPlayers.replace(i,p);
+        }
     }
 }
 
@@ -123,7 +140,6 @@ void BasketSocket::messageReceived()
     QString inMessage;
     in >> inMessage;
     blockSize = 0;
-    std::cout<< qPrintable(inMessage);
     this->parseMessage(inMessage);
 }
 
@@ -131,10 +147,12 @@ void BasketSocket::sendName()
 {
     this->connected = true;
     QString nameMessage(nameConst);
+    nameMessage.append(separator);
     nameMessage.append(this->player->name);
     this->sendMessage(nameMessage);
 
 }
+
 
 BasketSocket::~BasketSocket()
 {

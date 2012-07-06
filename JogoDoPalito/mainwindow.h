@@ -28,6 +28,7 @@ private slots:
     void on_guessPushButton_clicked();
     void drawPlayersList();
     void setIndex();
+    void drawWinnersList();
 };
 
 #endif // MAINWINDOW_H

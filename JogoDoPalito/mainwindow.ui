@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>528</width>
-    <height>243</height>
+    <height>355</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -99,13 +99,8 @@
      </rect>
     </property>
     <property name="columnCount">
-     <number>5</number>
+     <number>4</number>
     </property>
-    <column>
-     <property name="text">
-      <string>nº</string>
-     </property>
-    </column>
     <column>
      <property name="text">
       <string>Nome</string>
@@ -126,6 +121,27 @@
       <string>Vitórias</string>
      </property>
     </column>
+   </widget>
+   <widget class="QLabel" name="winnersLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>200</y>
+      <width>501</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Vencedores da rodada:</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

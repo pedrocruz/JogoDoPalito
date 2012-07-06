@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(connectionDialog, SIGNAL(ok_clicked()), this, SLOT(connectToServer()));
     connect(bSocket, SIGNAL(playersListChanged()), this, SLOT(drawPlayersList()));
     connect(bSocket, SIGNAL(indexChanged()), this, SLOT(setIndex()));
+    connect(bSocket,SIGNAL(allPlayersReady()),this,SLOT(drawWinnersList()));
     ui->setupUi(this);
 
 }
@@ -43,11 +44,12 @@ void MainWindow::on_guessPushButton_clicked()
 
 void MainWindow::drawPlayersList()
 {
+    this->ui->playersTableWidget->clearContents();
     this->ui->playersTableWidget->setRowCount(this->bSocket->otherPlayers.size());
     for(int i = 0; i< this->bSocket->otherPlayers.size(); i++){
         this->ui->playersTableWidget->setItem(i,0, new QTableWidgetItem(bSocket->otherPlayers.at(i).name));
-        this->ui->playersTableWidget->setItem(i,1, new QTableWidgetItem(QString::number(bSocket->otherPlayers.at(i).guess)));
-        this->ui->playersTableWidget->setItem(i,2, new QTableWidgetItem(QString::number(bSocket->otherPlayers.at(i).hand)));
+        this->ui->playersTableWidget->setItem(i,1, new QTableWidgetItem(QString::number(bSocket->otherPlayers.at(i).hand)));
+        this->ui->playersTableWidget->setItem(i,2, new QTableWidgetItem(QString::number(bSocket->otherPlayers.at(i).guess)));
         this->ui->playersTableWidget->setItem(i,3, new QTableWidgetItem(QString::number(bSocket->otherPlayers.at(i).wins)));
     }
 }
@@ -58,4 +60,19 @@ void MainWindow::setIndex()
     labelText.append(" ");
     labelText.append(QString::number(this->bSocket->player->index));
     this->ui->indexLabel->setText(labelText);
+}
+
+void MainWindow::drawWinnersList()
+{
+    this->drawPlayersList();
+    QString winners("Vencedores da rodada: ");
+    for(int i = 0; i<bSocket->winnersIndexes.size();i++){
+        if (i != 0){
+            winners.append(", ");
+        }
+
+        winners.append(bSocket->otherPlayers.at(bSocket->winnersIndexes.at(i)).name);
+
+    }
+    this->ui->winnersLabel->setText(winners);
 }
