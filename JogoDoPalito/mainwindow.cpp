@@ -11,7 +11,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(connectionDialog, SIGNAL(ok_clicked()), this, SLOT(connectToServer()));
     connect(bSocket, SIGNAL(playersListChanged()), this, SLOT(drawPlayersList()));
-    connect(bSocket, SIGNAL(indexChanged()), this, SLOT(setIndex()));
     connect(bSocket,SIGNAL(allPlayersReady()),this,SLOT(drawWinnersList()));
     ui->setupUi(this);
 
@@ -29,6 +28,9 @@ void MainWindow::resultsReceived()
 
 void MainWindow::connectToServer()
 {
+    QString name(this->ui->nameLabel->text());
+    name.append(this->connectionDialog->name);
+    this->ui->nameLabel->setText(name);
     bSocket->player->name = this->connectionDialog->name;
     this->bSocket->connectTo(this->connectionDialog->ip, this->connectionDialog->port.toInt());
     this->connectionDialog->hide();
@@ -54,25 +56,25 @@ void MainWindow::drawPlayersList()
     }
 }
 
-void MainWindow::setIndex()
-{
-    QString labelText = this->ui->indexLabel->text();
-    labelText.append(" ");
-    labelText.append(QString::number(this->bSocket->player->index));
-    this->ui->indexLabel->setText(labelText);
-}
+
 
 void MainWindow::drawWinnersList()
 {
     this->drawPlayersList();
-    QString winners("Vencedores da rodada: ");
-    for(int i = 0; i<bSocket->winnersIndexes.size();i++){
-        if (i != 0){
-            winners.append(", ");
+    QString winners(" ");
+
+    if(bSocket->winnersIndexes.size()>0){
+        winners= QString("Vencedores da rodada: ");
+        for(int i = 0; i<bSocket->winnersIndexes.size();i++){
+            if (i != 0){
+                winners.append(", ");
+            }
+
+            winners.append(bSocket->otherPlayers.at(bSocket->winnersIndexes.at(i)).name);
+
         }
-
-        winners.append(bSocket->otherPlayers.at(bSocket->winnersIndexes.at(i)).name);
-
+    }else{
+        winners = QString("Empate");
     }
     this->ui->winnersLabel->setText(winners);
 }

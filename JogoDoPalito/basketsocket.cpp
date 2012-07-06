@@ -50,7 +50,6 @@ void BasketSocket::sendMove(int hand, int guess)
     move.append(QString::number(hand));
     move.append(separator);
     move.append(QString::number(guess));
-    std::cout<<qPrintable(move)<<std::endl;
     this->sendMessage(move);
 }
 
