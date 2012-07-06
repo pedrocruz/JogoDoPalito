@@ -41,6 +41,7 @@ void MainWindow::connectToServer()
 void MainWindow::on_guessPushButton_clicked()
 {
     this->bSocket->sendMove(this->ui->handSelect->value(), this->ui->guessSelect->value());
+    this->ui->guessPushButton->setEnabled(false);
 
 }
 
@@ -76,5 +77,6 @@ void MainWindow::drawWinnersList()
     }else{
         winners = QString("Empate");
     }
+    this->ui->guessPushButton->setEnabled(true);
     this->ui->winnersLabel->setText(winners);
 }
