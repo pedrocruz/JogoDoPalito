@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'connectiondialog.ui'
 **
-** Created: Thu 5. Jul 19:22:34 2012
+** Created: Thu 5. Jul 21:19:39 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -31,12 +31,14 @@ public:
     QLabel *label_2;
     QLabel *label_3;
     QPushButton *okButton;
+    QLabel *nameLabel;
+    QLineEdit *nameLineEdit;
 
     void setupUi(QDialog *ConnectionDialog)
     {
         if (ConnectionDialog->objectName().isEmpty())
             ConnectionDialog->setObjectName(QString::fromUtf8("ConnectionDialog"));
-        ConnectionDialog->resize(190, 170);
+        ConnectionDialog->resize(190, 234);
         ipLineEdit = new QLineEdit(ConnectionDialog);
         ipLineEdit->setObjectName(QString::fromUtf8("ipLineEdit"));
         ipLineEdit->setGeometry(QRect(10, 60, 171, 20));
@@ -54,7 +56,13 @@ public:
         label_3->setGeometry(QRect(10, 10, 191, 16));
         okButton = new QPushButton(ConnectionDialog);
         okButton->setObjectName(QString::fromUtf8("okButton"));
-        okButton->setGeometry(QRect(10, 140, 171, 23));
+        okButton->setGeometry(QRect(10, 200, 171, 23));
+        nameLabel = new QLabel(ConnectionDialog);
+        nameLabel->setObjectName(QString::fromUtf8("nameLabel"));
+        nameLabel->setGeometry(QRect(10, 140, 141, 16));
+        nameLineEdit = new QLineEdit(ConnectionDialog);
+        nameLineEdit->setObjectName(QString::fromUtf8("nameLineEdit"));
+        nameLineEdit->setGeometry(QRect(10, 160, 171, 20));
 
         retranslateUi(ConnectionDialog);
 
@@ -68,6 +76,7 @@ public:
         label_2->setText(QApplication::translate("ConnectionDialog", "Porta:", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("ConnectionDialog", "Qual o endere\303\247o a ser conectado?", 0, QApplication::UnicodeUTF8));
         okButton->setText(QApplication::translate("ConnectionDialog", "Ok", 0, QApplication::UnicodeUTF8));
+        nameLabel->setText(QApplication::translate("ConnectionDialog", "Qual o seu nome?", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

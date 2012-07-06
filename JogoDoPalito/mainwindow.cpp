@@ -28,6 +28,7 @@ void MainWindow::resultsReceived()
 
 void MainWindow::connectToServer()
 {
+    bSocket->player->name = this->connectionDialog->name;
     this->bSocket->connectTo(this->connectionDialog->ip, this->connectionDialog->port.toInt());
     this->connectionDialog->hide();
     delete this->connectionDialog;

@@ -63,16 +63,23 @@ void BasketSocket::connectTo(QString ip, int port)
     this->connected = true;
     connect(tcpSocket, SIGNAL(readyRead()), this, SLOT(messageReceived()));
     connect(tcpSocket, SIGNAL(disconnected()),tcpSocket, SLOT(deleteLater()));
+    QString nameMessage(nameConst);
+    nameMessage.append(this->player->name);
+    this->sendMessage(nameMessage);
+
 }
 
 void BasketSocket::parseMessage(QString message)
 {
     QStringList list;
+    Player p;
     if(message.contains(moveConst)){
         list = message.split(separator);
-        for(int i=0; i<list.size()/2; i++){
-            this->player->hand = list.at(1+(i*2)).toInt();
-            this->player->guess = list.at(2+(i*2)).toInt();
+        for(int i=0; i<list.size(); i++){
+            p = this->otherPlayers.at(i);
+            p.hand = list.at(1+(i*2)).toInt();
+            p.guess = list.at(2+(i*2)).toInt();
+            this->otherPlayers.replace(i,p);
         }
     }else if(message.contains(indexConst)){
         std::cout<<__LINE__<<std::endl;
@@ -100,7 +107,6 @@ void BasketSocket::sendMessage(QString messageToSend)
     out<< messageToSend;
     out.device()->seek(0);
     out << (quint16)(block.size() - sizeof(quint16));
-
     this->tcpSocket->write(block);
     this->tcpSocket->flush();
 }
@@ -121,9 +127,7 @@ void BasketSocket::messageReceived()
 
         in >> blockSize;
     }
-
     if (tcpSocket->bytesAvailable() < blockSize) return;
-
     QString inMessage;
     in >> inMessage;
     blockSize = 0;

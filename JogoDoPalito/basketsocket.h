@@ -16,12 +16,13 @@
 #define moveConst "<move>"
 #define indexConst "<index>"
 #define playersConst "<players>"
+#define nameConst "<name>"
 
-//move send format: "<move>,index,hand,guess"
+//move send format: "<move>,hand,guess"
 //players subscription format: "<players>,name1,name2,name3
 //move reception format: "<move>,hand1,guess1,hand2,guess2..."
 //index format: "<index>,index"
-
+//name format: "<name>,name"
 
 
 class BasketSocket : public QObject

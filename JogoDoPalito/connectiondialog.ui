@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>190</width>
-    <height>170</height>
+    <height>234</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -76,13 +76,36 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>140</y>
+     <y>200</y>
      <width>171</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
     <string>Ok</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nameLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>140</y>
+     <width>141</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Qual o seu nome?</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="nameLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>160</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
    </property>
   </widget>
  </widget>

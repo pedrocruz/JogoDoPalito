@@ -16,6 +16,7 @@ public:
     ~ConnectionDialog();
     QString ip;
     QString port;
+    QString name;
 
 signals:
     void ok_clicked();
